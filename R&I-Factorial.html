@@ -1,0 +1,53 @@
+<!DOCTYPE 
+Algorithm:
+    Step1: Define a function factorialize that has a parameter n.
+    Step2: Initialize a variable result to 1.  
+    Step3: Use a for loop that initializes a variable i to 1, checks if i is less than or equal to n, and increments i by 1 in each iteration.
+    Step4: Inside the loop, multiply result by i and update result.
+    Step5: After the loop, return the value of result. 
+    Step6: For Recursive, define another function with parameter n
+    Step7: Check if n is 1 if true return 1 or else return n multiplied into the function (n-1).
+    Step8: Add the corresponding coding of html.
+    Step9: create a function show result in the html.
+-->
+<html>
+    <head>
+        <title>IvsR-Factorial</title>
+    </head>
+    <body>
+        <h1>Factorial Calculator</h1>
+        <input type="number" id="numInput" placeholder="Enter a Number">
+        <button onclick="showResults()">Calculates</button>
+        <h3>Iterative (Loop)</h3>
+        <p id="iResult"></p>
+        <h3>Recursive(Function calls itself)</h3>
+        <p id="rResult"></p>
+    <script>    
+    function iFactorial(n) {
+      let result = 1;
+      for (let i = 2; i <= n; i++) {
+        result *= i;
+      }
+      return result;
+    }
+    function rFactorial(n) {
+      if (n <= 1) return 1;
+      return n * rFactorial(n - 1);
+    }
+    function showResults() {
+      var n = Number(document.getElementById("numInput").value);
+
+      if (!Number.isInteger(n) || n < 0) {
+        document.getElementById("iResult").textContent =
+          "Please enter a whole number (0 or more).";
+        document.getElementById("rResult").textContent = "";
+        return;
+      }
+      document.getElementById("iResult").textContent =
+        n + "! = " + iFactorial(n);
+      document.getElementById("rResult").textContent =
+        n + "! = " + rFactorial(n);
+    }
+  </script>
+</body>
+</html>
